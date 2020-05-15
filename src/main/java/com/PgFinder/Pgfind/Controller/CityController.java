@@ -33,7 +33,7 @@ public class CityController {
 	
 	
 	
-	@GetMapping("/Count")
+	@GetMapping("/Features")
 	public PgFeatures getFeatures(@RequestParam long id) {
 		//long id=1;
 		
