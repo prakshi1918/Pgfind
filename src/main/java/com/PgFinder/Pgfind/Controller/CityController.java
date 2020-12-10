@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import com.PgFinder.Pgfind.model.Pg;
 import com.PgFinder.Pgfind.model.PgFeatures;
 
 @RestController
+
 public class CityController {
 	@Autowired
 	private PgService pgService;
@@ -26,6 +28,12 @@ public class CityController {
 	public List<Pg> GetMumbaiPg(){
 		return pgService.getMumbaPgsbyCity();
 	}
+	
+	@GetMapping("/Kolkata")
+	public List<Pg> GetKolkataPg(){
+		return pgService.getPgsKolkabyCity();
+	}
+	
 	@GetMapping("/Hyderabad")
 	public List<Pg> GetHyderabadPg(){
 		return pgService.getHydPgsbyCity();
@@ -36,7 +44,7 @@ public class CityController {
 	@GetMapping("/Features")
 	public PgFeatures getFeatures(@RequestParam long id) {
 		//long id=1;
-		
+		System.out.println(id);
 		return pgService.getPgFeatures(id);
 	}
 	@GetMapping("/chal")
